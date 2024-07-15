@@ -34,3 +34,9 @@ print(youtube_video)
 youtube_video = add_comment(youtube_video, "User1", "Great video!")
 youtube_video = add_comment(youtube_video, "User2", "Love it!")
 print(youtube_video)
+
+for i in range(495):
+    video = like(youtube_video)
+
+print("Video after adding 495 likes:")
+print(video) 
