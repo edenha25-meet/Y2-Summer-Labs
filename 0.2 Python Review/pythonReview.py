@@ -15,7 +15,6 @@ def like(ytvid):
 
 def dislike(ytvid):
     if 'dislikes' in ytvid:
-        ytvid['dislikes'] += 1
     return ytvid
 
 def add_comment(ytvid, username, comment_text):

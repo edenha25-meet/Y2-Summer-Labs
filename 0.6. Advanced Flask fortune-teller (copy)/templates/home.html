@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to The Fortune Teller</title>
+  <style>
+    body {
+      background-color: skyblue;
+      color: red;
+      font-family: Arial, sans-serif;
+    }
+    .fortune-form {
+      margin-top: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Fortune Telling</h1>
+  <img  src='https://upload.wikimedia.org/wikipedia/en/0/0c/The_Genie_Aladdin.png' alt='The Genie from Aladdin'>
+
+  <form class="fortune-form" action="/home" method="POST">
+    <label for="birth-month">Enter your birth month:</label>
+    <input type="text" id="birth-month" name="birthMonth" required>
+    <button type="submit">Tell my fortune</button>
+  </form>
+</body>
+</html>
