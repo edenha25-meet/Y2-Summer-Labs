@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to The Fortune Teller</title>
+  <style>
+    body {
+      background-color: skyblue;
+      color: red;
+      font-family: Arial, sans-serif;
+      background-image: url('https://upload.wikimedia.org/wikipedia/en/0/0c/The_Genie_Aladdin.png');
+      background-repeat: no-repeat;
+      background-attachment: center;
+      background-size: 70%; 
+      margin-left: 40%;
+      margin-right: 30%;
+      text-align: center; 
+    }
+
+    h1 {
+      color:white;
+      margin-top: 80px; 
+      text-shadow: 2px 2px darkblue;
+}
+    }
+
+    .fortune-form {
+      margin-top: 20px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome, {{ username }}!</h1>
+  <a href="{{ url_for('fortune') }}">View Your Fortune Here!</a>
+</body>
+</html>
+

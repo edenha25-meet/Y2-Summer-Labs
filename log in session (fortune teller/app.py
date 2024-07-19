@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for
 import random
+from flask import session as login_session
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+app.secret_key = 'clifforddddd'  
 
 fortunes = [
     "Opportunity knocks softly, listen carefully.",
@@ -16,24 +18,35 @@ fortunes = [
     "Unexpected travel will bring you great experiences and memories."
 ]
 
-@app.route('/home', methods=['GET', 'POST'])
-def home():
+@app.route('/', methods=['GET', 'POST'])
+def login():
     if request.method == 'GET':
-        return render_template('home.html')
-    elif request.method == 'POST':
-        birth_month = request.form['birthMonth']
-        return redirect(url_for('fortune', month=birth_month))
+        return render_template('login.html')
+    else:
+        login_session["birthmonth"] = request.form["birthmonth"]
+        login_session["username"] = request.form["username"]
+        return redirect(url_for('home'))
+
+@app.route('/home', methods=['GET'])
+def home():
+    username = login_session.get("username")
+    return render_template('home.html', username=username)
 
 @app.route('/fortune')
 def fortune():
-    month = request.args.get('month', '')
-    month_length = len(month)
+    birthmonth = login_session.get("birthmonth")
+    month_length = len(birthmonth)
     if month_length <= len(fortunes):
-            random_fortune = fortunes[month_length - 1]
+        random_fortune = fortunes[month_length - 1] ## '-1' so there isnt an outofbound error
     else:
-            random_fortune = "Your birth month is too long for a fortune."
+        random_fortune = "Your birth month is too long for a fortune."
 
     return render_template('fortune.html', fortune=random_fortune)
+
+@app.route('/indecisive')
+def indecisive():
+    indecisive_fortunes = [random.choice(fortunes) for i in range(3)]
+    return render_template('indecisive.html', indecisive_f=indecisive_fortunes)
 
 if __name__ == '__main__':
     app.run(debug=True)

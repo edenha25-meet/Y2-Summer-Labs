@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+    body {
+      background-color: skyblue;
+      color: red;
+      font-family: Papyrus;
+      background-image: url('https://upload.wikimedia.org/wikipedia/en/0/0c/The_Genie_Aladdin.png');
+      background-repeat: no-repeat;
+      background-attachment: center;
+      background-size: 70%; 
+      margin-left: 40%;
+      margin-right: 30%;
+      text-align: center; 
+    }
+
+    h1 {
+      margin-top: 80px; 
+    }
+    h1 {
+      text-shadow: 2px 2px darkblue;
+      text-size: 50%;
+    }
+    .fortune-form {
+      margin-top: 20px; 
+    }
+  </style>
+<body>
+    <form action="/" method="post" style="max-width:500px;margin:auto">
+      <h1 style="color: white;">Login to Fortune Teller</h1>
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input class="input-field" type="text" placeholder="Username" name="username" required>
+      </div>
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input class="input-field" type="text" placeholder="Birth Month" name="birthmonth" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+</body>
+</html>
