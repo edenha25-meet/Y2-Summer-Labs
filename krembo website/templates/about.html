@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <nav>
+  <a href="{{ url_for('home') }}">Home</a> 
+  <a href="{{ url_for('about') }}">About Us</a> 
+  <a href="{{ url_for('login') }}">Logout</a>
+</nav>
+  <title>About Krembo Wings</title>
+  <style>
+    body {
+      background-color: skyblue;
+      color: red;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 80px;
+    }
+
+    .content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      color: black;
+    }
+
+    .team {
+      margin-top: 20px;
+    }
+
+    .team-member {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>About Krembo Wings</h1>
+  <div class="content">
+    <p>Krembo Wings is an organization dedicated to integrating kids with special needs through various activities and community support. Our mission is to create an inclusive environment where every child feels valued and loved.</p>
+    
+    <div class="team">
+      <h2>Our Team</h2>
+      <div class="team-member">
+        <p><strong>John Doe</strong> - Founder</p>
+        <p>John has been dedicated to helping children with special needs for over 20 years.</p>
+      </div>
+      <div class="team-member">
+        <p><strong>Jane Smith</strong> - Counselor</p>
+        <p>Jane brings her passion for inclusion and extensive experience in child development to Krembo Wings.</p>
+      </div>
+      <div class="team-member">
+        <p><strong>Mary Johnson</strong> - Volunteer Coordinator</p>
+        <p>Mary ensures that all volunteers are well-prepared and supported in their roles.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

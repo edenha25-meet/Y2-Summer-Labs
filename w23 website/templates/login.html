@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    body {
+      background-color: #0C4160;
+      color: #FFFFFF; 
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-image: url("https://cdn.wallpapersafari.com/53/58/tqKd0v.jpg");
+      background-size: fill;
+      background-position:;
+      background-repeat: no-repeat;
+    }
+
+    
+
+    .container {
+      background-color: #FFFFFF; 
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .logo {
+      width: 100%;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    h1 {
+      color: #003366; 
+      text-shadow: 2px 2px #D3D2C7; 
+    }
+
+    .input-container {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .input-container i {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #003366; /* Dark Blue */
+    }
+
+    .input-field {
+      width: calc(100% - 40px); 
+      padding: 10px 10px 10px 30px;
+      border: 1px solid #003366; 
+      border-radius: 5px;
+      color: #003366; 
+    }
+
+    .btn {
+      background-color: #003366; 
+      color: #D3D2C7; 
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #D3D2C7; 
+      color: #003366; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.scdn.co/image/ab6761860000101648debeebe74ebfe6f8747c86" alt="WTE Logo" class="logo">
+    <h1>Login to Wave To Earth</h1>
+    <form action="/" method="post">
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input class="input-field" type="text" placeholder="Username" name="username" required>
+      </div>
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input class="input-field" type="password" placeholder="Password" name="password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+</body>
+</html>
