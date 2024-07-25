@@ -21,18 +21,6 @@
       font-size: 1.2em;
       margin-bottom: 20px;
     }
-    .val{
-    width: 100px;
-    height: auto;
-    }
-    .albumt {
-      text-align: center;
-      padding: 10px;
-      font-weight: bold;
-      font-size: 1.2em;
-      color: white;
-      margin-bottom: 20px;
-    }
 
     .nav-links {
       text-align: center;
@@ -53,77 +41,40 @@
       color: #FFD700;
     }
 
-    .pictures {
+    .pictures, .testimonials, .values {
       background-color: #072041;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       padding: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
-    .testimonials {
-      background-color: #072041;
-      border: 5px solid darkblue;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-     .values {
-      background-color: #072041;
 
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
     .text {
       color: white;
     }
 
-    .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
-      overflow: hidden;
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .carousel-wrapper {
-      display: flex;
+    .gallery .album {
       transition: transform 0.3s ease;
     }
 
-    .carousel .album {
-      flex: 0 0 100%;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    .gallery .album:hover {
+      transform: scale(1.1);
     }
 
-    .carousel .album img {
+    .gallery .album img {
       border-radius: 10px;
       max-width: 100%;
+      display: block;
     }
 
-    .carousel .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      font-size: 1.5em; 
-      padding: 8px;
-      cursor: pointer;
-      border-radius: 50%;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel .arrow:hover {
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .carousel .arrow-left {
-      left: 10px;
-    }
-
-    .carousel .arrow-right {
-      right: 10px;
+    .val{
+    width: 100px;
+    height: auto;
     }
 
     .album-title {
@@ -133,34 +84,37 @@
       color: white;
     }
 
+    .logo-img, .name-img {
+      display: block;
+      margin: 20px auto;
+    }
+
     .logo-img {
       width: 50%; 
       max-width: 500px;
-      display: block;
-      margin: 20px auto;
-
     }
+
     .name-img {
       width: 100%; 
       max-width: 500px;
       border-radius: 10px;
-      display: block;
-      margin: 20px auto;
-      
     }
-    .overlay {
+
+    .overlay, .overlay2 {
       position: absolute;
+      pointer-events: none;
+    }
+
+    .overlay {
       top: 26%; 
       left: 19%; 
       width: 500px; 
-      pointer-events: none; 
     }
+
     .overlay2 {
-      position: absolute;
       top: 23%; 
       left: 53%; 
       width: 500px; 
-      pointer-events: none; 
     }
   </style>
 </head>
@@ -170,90 +124,49 @@
     <a href="{{ url_for('about') }}">About Us</a>
     <a href="{{ url_for('login') }}">Logout</a>
     <a href="{{ url_for('contact_page') }}">Contact</a>
-
   </div>
   <div class="content">
     <h2>Welcome, {{ username }}!</h2>
     <img src="https://www.israelgives.org/Pictures/AmutaPictures/38553_Large_logo.jpg" alt="Wave to Earth" class="logo-img">
     <div class="pictures">
-      <h1 class="albumt">Our Gallery</h1>
-      <div class="carousel">
-        <button class="arrow arrow-left" onclick="prevAlbum()">&#10094;</button>
-        <div class="carousel-wrapper">
-          <div class="album" id="album-0">
-               <img src = "{{ url_for('static', filename='krembo2.jpeg') }}" alt="0.1 flaws and all." class="album-cover">
-              <p class="album-title">first activity of the year</p>
-            </a>
-          </div>
-          <div class="album" id="album-1">
-              <img src = "{{ url_for('static', filename='sem.jpeg') }}" alt="summer flows 0.02" class="album-cover">
-              <p class="album-title">Krembo Seminar</p>
-            </a>
-          </div>
-          <div class="album" id="album-2">
-              <img src = "{{ url_for('static', filename='krembo4.jpeg') }}" alt="wave 0.01" class="album-cover">
-              <p class="album-title">Valentines Day Activity</p>
-            </a>
-          </div>
-          <div class="album" id="album-3">
-          <img src = "{{ url_for('static', filename='masa1.jpeg') }}">
-          <p class="album-title"> Masa Aviv </p>
-          </div>
+      <h1 class="text">Our Gallery</h1>
+      <div class="gallery">
+        <div class="album">
+          <img src="{{ url_for('static', filename='krembo2.jpeg') }}" alt="First activity of the year" class="album-cover">
+          <p class="album-title">First activity of the year</p>
         </div>
-        <button class="arrow arrow-right" onclick="nextAlbum()">&#10095;</button>
+        <div class="album">
+          <img src="{{ url_for('static', filename='sem.jpeg') }}" alt="Krembo Seminar" class="album-cover">
+          <p class="album-title">Krembo Seminar</p>
+        </div>
+        <div class="album">
+          <img src="{{ url_for('static', filename='krembo4.jpeg') }}" alt="Valentines Day Activity" class="album-cover">
+          <p class="album-title">Valentines Day Activity</p>
+        </div>
+        <div class="album">
+          <img src="{{ url_for('static', filename='masa1.jpeg') }}" alt="Masa Aviv" class="album-cover">
+          <p class="album-title">Masa Aviv</p>
+        </div>
       </div>
     </div>
-
     <div class="values">
-  <div class="album-title">
-    <h2>Our Values</h2>
+      <h2 class="album-title">Our Values</h2>
+      <div class="value">
+        <img class="val" src="https://www.nicepng.com/png/full/332-3327400_gillespie-fuels-propane-friend-icon-png-white.png" alt="I Am a Friend">
+        <h3 class="text">I Am a Friend – Mutual Commitment</h3>
+        <p class="text">To take care of one another. To accept the fact that no one is perfect. To respect one another and each person’s capabilities. To help, support, accept, and interact.</p>
+      </div>
+      <div class="value">
+        <img class="val" src="https://png.pngtree.com/png-vector/20231230/ourmid/pngtree-3d-white-hearts-png-image_11390453.png" alt="I Love">
+        <h3 class="text">I Love – “Love your fellow as yourself”</h3>
+        <p class="text">To love by understanding and with the ability to accept any situation, even when it is hard. To always look on the positive side of things and to act out of joy.</p>
+      </div>
+      <div class="value">
+        <img class="val" src="{{ url_for('static', filename='here.png') }}" alt="I Can">
+        <h3 class="text">I Can – Abilities and Independence</h3>
+        <p class="text">I believe in myself, in my ability to influence others and to lead change, and in my choice to be independent.</p>
+      </div>
+    </div>
   </div>
-  <div class="value">
-    <img class = "val" src="https://www.nicepng.com/png/full/332-3327400_gillespie-fuels-propane-friend-icon-png-white.png" alt="Authenticity">
-    <div> </div>
-    <h3 class = "text"> I Am a Friend – Mutual Commitment </h3>
-    <p class = "text"> To take care of one another. To accept the fact that no one is perfect. To respect one another and each person’s capabilities. To help, support, accept, and interact.</p>
-  </div>
-  <div class="value">
-    <img class = "val" src= "https://png.pngtree.com/png-vector/20231230/ourmid/pngtree-3d-white-hearts-png-image_11390453.png" alt="Creativity">
-    <div></div>
-    <h3 class = "text"> I Love – “Love your fellow as yourself” </h3>
-    <p class = "text" > To love by understanding and with the ability to accept any situation, even when it is hard. To always look on the positive side of things and to act out of joy.</p>
-  </div>
-  <div class="value">
-    <img class = "val" src="{{ url_for('static', filename='here.png') }}" alt="Passion">
-    <div></div>
-    <h3 class ="text" > I Can – Abilities and Independence </h3>
-    <p class = "text" > I believe in myself, in my ability to influence others and to lead change, and in my choice to be independent </p> 
-  </div>
-</div>
-  </div>
-
-  <script>
-    let currentIndex = 0;
-    const albums = document.querySelectorAll('.carousel .album');
-    const totalAlbums = albums.length;
-
-    function updateCarousel() {
-      const offset = -currentIndex * 100;
-      document.querySelector('.carousel-wrapper').style.transform = `translateX(${offset}%)`;
-      albums.forEach((album, index) => {
-        album.style.transform = index === currentIndex ? 'scale(1)' : 'scale(0.8)';
-        album.style.opacity = index === currentIndex ? '1' : '0.5';
-      });
-    }
-
-    function nextAlbum() {
-      currentIndex = (currentIndex + 1) % totalAlbums;
-      updateCarousel();
-    }
-
-    function prevAlbum() {
-      currentIndex = (currentIndex - 1 + totalAlbums) % totalAlbums;
-      updateCarousel();
-    }
-
-    updateCarousel();
-  </script>
 </body>
 </html>
