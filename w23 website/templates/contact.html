@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      background-color: #E7F6FF;
+      font-family: 'Roboto', sans-serif;
+      color: #003366;
+      padding: 20px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .albumt {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .nav-links {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .nav-links a {
+      color: #003366;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+    .pictures, .testimonials, .values {
+      background-color: #072041;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .album-title {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .logo-img {
+      width: 60%; /* Smaller logo size */
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .name-img {
+      width: 100%; 
+      max-width: 500px;
+      border-radius: 10px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 26%; 
+      left: 19%; 
+      width: 500px; 
+      pointer-events: none; 
+    }
+
+    .overlay2 {
+      position: absolute;
+      top: 23%; 
+      left: 53%; 
+      width: 500px; 
+      pointer-events: none; 
+    }
+
+    .input {
+      width: 500px;
+    }
+</style>
+<body>
+   <div class="nav-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('login') }}">Logout</a>
+    <a href="{{ url_for('contact_page') }}">Contact</a>
+   </div>
+
+   <h1>Contact Us</h1>
+   <form method="post">
+       <input class="input" type="text" name="name" placeholder="Your Name" required><br>
+       <input class="input" type="email" name="email" placeholder="Your Email" required><br>
+       <textarea class="input" name="message" placeholder="Your Message/Krembo Story" required></textarea><br>
+       <button type="submit">Submit</button>
+   </form>
+
+   <h2>Your Messages</h2>
+   <ul>
+     {% for key, fan_message in fan_messages.items() %}
+           <li>{{ fan_message.name }}: {{ fan_message.message }}</li>
+       {% endfor %}
+   </ul>
+</body>
+</html>

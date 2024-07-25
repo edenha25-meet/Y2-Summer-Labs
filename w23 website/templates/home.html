@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wave to Earth - Home</title>
+  <title>Krembo Wings - Home</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -21,7 +21,10 @@
       font-size: 1.2em;
       margin-bottom: 20px;
     }
-
+    .val{
+    width: 100px;
+    height: auto;
+    }
     .albumt {
       text-align: center;
       padding: 10px;
@@ -50,12 +53,27 @@
       color: #FFD700;
     }
 
-    .pictures, .testimonials, .values {
+    .pictures {
       background-color: #072041;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .testimonials {
+      background-color: #072041;
+      border: 5px solid darkblue;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+     .values {
+      background-color: #072041;
+
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .text {
+      color: white;
     }
 
     .carousel {
@@ -89,7 +107,7 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
-      font-size: 1.5em; /* Smaller arrow size */
+      font-size: 1.5em; 
       padding: 8px;
       cursor: pointer;
       border-radius: 50%;
@@ -116,7 +134,7 @@
     }
 
     .logo-img {
-      width: 60%; /* Smaller logo size */
+      width: 50%; 
       max-width: 500px;
       display: block;
       margin: 20px auto;
@@ -151,38 +169,35 @@
     <a href="{{ url_for('home') }}">Home</a>
     <a href="{{ url_for('about') }}">About Us</a>
     <a href="{{ url_for('login') }}">Logout</a>
+    <a href="{{ url_for('contact_page') }}">Contact</a>
+
   </div>
   <div class="content">
     <h2>Welcome, {{ username }}!</h2>
-     <img src="{{ url_for('static', filename='logo3.png') }}" alt="Bubble Image" class = "name-img">
-    <img src="{{ url_for('static', filename='w2e.png') }}" alt="Wave to Earth" class="logo-img">
-    <img src = "{{ url_for('static', filename='squiggle1.png') }}" class = "overlay">
-    <img src = "{{ url_for('static', filename='squiggle2.png') }}" class = "overlay2">
-    
+    <img src="https://www.israelgives.org/Pictures/AmutaPictures/38553_Large_logo.jpg" alt="Wave to Earth" class="logo-img">
     <div class="pictures">
-      <h1 class="albumt">Our Albums</h1>
+      <h1 class="albumt">Our Gallery</h1>
       <div class="carousel">
         <button class="arrow arrow-left" onclick="prevAlbum()">&#10094;</button>
         <div class="carousel-wrapper">
           <div class="album" id="album-0">
-            <a href="https://open.spotify.com/album/0kT2Dn4QknHk92h76ZcMk0?si=oh2Hv2r5QQaZFPAbX38eXw">
-              <img src="https://e.snmc.io/i/1200/s/e2040a5c887b8cdb07482b6e0bc23070/10933362" alt="0.1 flaws and all." class="album-cover">
-              <p class="album-title">0.1 flaws and all.</p>
+               <img src = "{{ url_for('static', filename='krembo2.jpeg') }}" alt="0.1 flaws and all." class="album-cover">
+              <p class="album-title">first activity of the year</p>
             </a>
           </div>
           <div class="album" id="album-1">
-            <a href="https://open.spotify.com/album/3NRNR4txhuRLhnQUUlqWXH?si=2duOOT0-QVWwtbzVnvkTeA">
-              <img src="https://cdns-images.dzcdn.net/images/cover/c2b3d60bf0c77ba3fbcaf0aa609c7a55/1900x1900-000000-80-0-0.jpg" alt="summer flows 0.02" class="album-cover">
-              <p class="album-title">summer flows 0.02</p>
+              <img src = "{{ url_for('static', filename='sem.jpeg') }}" alt="summer flows 0.02" class="album-cover">
+              <p class="album-title">Krembo Seminar</p>
             </a>
           </div>
           <div class="album" id="album-2">
-            <a href="https://open.spotify.com/album/3v2wQt26hJ3ricGPZ1kbld?si=r3Vgs978R1ai9p2NvpfPMQ">
-              <img src="https://i.scdn.co/image/ab67616d0000b2739b3a520a7e06d304b59f01fe" alt="wave 0.01" class="album-cover">
-              <p class="album-title">wave 0.01</p>
+              <img src = "{{ url_for('static', filename='krembo4.jpeg') }}" alt="wave 0.01" class="album-cover">
+              <p class="album-title">Valentines Day Activity</p>
             </a>
           </div>
           <div class="album" id="album-3">
+          <img src = "{{ url_for('static', filename='masa1.jpeg') }}">
+          <p class="album-title"> Masa Aviv </p>
           </div>
         </div>
         <button class="arrow arrow-right" onclick="nextAlbum()">&#10095;</button>
@@ -190,37 +205,28 @@
     </div>
 
     <div class="values">
-      <h2>Our Ethos</h2>
-      <div class="value">
-        <img src="https://example.com/icon1.png" alt="Authenticity">
-        <div>Authenticity - Stay true to yourself and your music.</div>
-      </div>
-      <div class="value">
-        <img src="https://example.com/icon2.png" alt="Creativity">
-        <div>Creativity - Push the boundaries and innovate.</div>
-      </div>
-      <div class="value">
-        <img src="https://example.com/icon3.png" alt="Passion">
-        <div>Passion - Pour your heart into every note.</div>
-      </div>
-      <div class="value">
-        <img src="https://example.com/icon4.png" alt="Connection">
-        <div>Connection - Build bridges with your audience.</div>
-      </div>
-    </div>
-    
-    <div class="testimonials">
-      <h2>Testimonials</h2>
-      <div class="testimonial">
-        <p>"Wave to Earth's music touches my soul." - Listener A</p>
-      </div>
-      <div class="testimonial">
-        <p>"Their concerts are an unforgettable experience." - Listener B</p>
-      </div>
-      <div class="testimonial">
-        <p>"Wave to Earth has redefined indie music for me." - Listener C</p>
-      </div>
-    </div>
+  <div class="album-title">
+    <h2>Our Values</h2>
+  </div>
+  <div class="value">
+    <img class = "val" src="https://www.nicepng.com/png/full/332-3327400_gillespie-fuels-propane-friend-icon-png-white.png" alt="Authenticity">
+    <div> </div>
+    <h3 class = "text"> I Am a Friend – Mutual Commitment </h3>
+    <p class = "text"> To take care of one another. To accept the fact that no one is perfect. To respect one another and each person’s capabilities. To help, support, accept, and interact.</p>
+  </div>
+  <div class="value">
+    <img class = "val" src= "https://png.pngtree.com/png-vector/20231230/ourmid/pngtree-3d-white-hearts-png-image_11390453.png" alt="Creativity">
+    <div></div>
+    <h3 class = "text"> I Love – “Love your fellow as yourself” </h3>
+    <p class = "text" > To love by understanding and with the ability to accept any situation, even when it is hard. To always look on the positive side of things and to act out of joy.</p>
+  </div>
+  <div class="value">
+    <img class = "val" src="{{ url_for('static', filename='here.png') }}" alt="Passion">
+    <div></div>
+    <h3 class ="text" > I Can – Abilities and Independence </h3>
+    <p class = "text" > I believe in myself, in my ability to influence others and to lead change, and in my choice to be independent </p> 
+  </div>
+</div>
   </div>
 
   <script>

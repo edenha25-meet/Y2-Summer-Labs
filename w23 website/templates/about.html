@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <nav>
-  <a href="{{ url_for('home') }}">Home</a> 
-  <a href="{{ url_for('about') }}">About Us</a> 
-  <a href="{{ url_for('login') }}">Logout</a>
-</nav>
+  <nav></nav>
   <title>About Krembo Wings</title>
   <style>
     body {
-      background-color: skyblue;
-      color: red;
+      background-color: #E7F6FF;
+      color: #072041;
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
@@ -21,7 +17,7 @@
     }
 
     .content {
-      background-color: white;
+      background-color: #072041;
       padding: 20px;
       border-radius: 10px;
       color: black;
@@ -29,33 +25,53 @@
 
     .team {
       margin-top: 20px;
+      color: white;
     }
 
     .team-member {
+      color: white;
       margin: 10px;
+    }
+
+    .nav-links {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .nav-links a {
+      color: #003366;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+    .img {
+      width: 500px;
     }
   </style>
 </head>
 <body>
+  <div class="nav-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('signout') }}">Logout</a>
+    <a href="{{ url_for('contact_page') }}">Contact</a>
+  </div>
+  
   <h1>About Krembo Wings</h1>
+  
   <div class="content">
-    <p>Krembo Wings is an organization dedicated to integrating kids with special needs through various activities and community support. Our mission is to create an inclusive environment where every child feels valued and loved.</p>
-    
-    <div class="team">
-      <h2>Our Team</h2>
-      <div class="team-member">
-        <p><strong>John Doe</strong> - Founder</p>
-        <p>John has been dedicated to helping children with special needs for over 20 years.</p>
-      </div>
-      <div class="team-member">
-        <p><strong>Jane Smith</strong> - Counselor</p>
-        <p>Jane brings her passion for inclusion and extensive experience in child development to Krembo Wings.</p>
-      </div>
-      <div class="team-member">
-        <p><strong>Mary Johnson</strong> - Volunteer Coordinator</p>
-        <p>Mary ensures that all volunteers are well-prepared and supported in their roles.</p>
-      </div>
-    </div>
+    <img class="img" src="https://static.israel21c.org/www/uploads/2017/06/krembo2-1520x855.jpg" alt="Krembo Wings">
+    <h3 class="team" >
+      Krembo Wings is an Israeli youth organisation for children and youths with and without special needs. The movement has about 100 branches all over Israel and holds weekly activities for kids with various disabilities (physical, cognitive and others) from all cultural, religious, and socio-economic backgrounds. All the activities in the movement are led by youth. In 2018, Krembo Wings has been chosen by the United Nations as a special advisor organization.
+    </h3>
   </div>
 </body>
 </html>

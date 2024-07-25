@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank you!</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      background-color: #E7F6FF;
+      font-family: 'Roboto', sans-serif;
+      color: #003366;
+      padding: 20px;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+     .nav-links {
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .nav-links a {
+      color: #003366;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+  </style>
+  <div class="nav-links">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="{{ url_for('signout') }}">Logout</a>
+    <a href="{{ url_for('contact_page') }}">Contact</a>
+<body>
+    <h1>Thank you for submitting your personal story! go back to see it posted</h1>
+</body>
+</html>

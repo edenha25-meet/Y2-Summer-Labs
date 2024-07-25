@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quotes</title>
+</head>
+<body>
+       <h1>Quotes</h1>
+    <ul>
+        {% for key, quote in quotes.items() %}
+            <li>{{ quote.qoute }} , {{ quote.said_by }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

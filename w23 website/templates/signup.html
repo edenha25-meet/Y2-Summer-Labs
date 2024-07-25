@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
 <style>
     body {
       background-color: #E7F6FF;
@@ -74,12 +74,15 @@
       background-color: #D3D2C7; 
       color: #003366; 
     }
-  </style>
+    .login{
+      color:black;
+    }
+</style>
 </head>
 <body>
   <div class="container">
     <img src="https://www.israelgives.org/Pictures/AmutaPictures/38553_Large_logo.jpg" alt="WTE Logo" class="logo">
-    <h1>Login to Krembo Wings</h1>
+    <h1>Sign up to Krembo Wings</h1>
     <form action="/" method="post">
       <div class="input-container">
         <i class="fa fa-user icon"></i>
@@ -89,11 +92,17 @@
         <i class="fa fa-key icon"></i>
         <input class="input-field" type="password" placeholder="Password" name="password" required>
       </div>
-      <button type="submit" class="btn">Login</button>
+      <div>
+      <a href="/login" class="login">Already have an account? Login here.</a>
+      </div>
+      <button type="submit" class="btn">Create</button>
     </form>
-    {% if error %}
+  </div>
+  {% if error %}
         <p>{{ error }}</p>
     {% endif %}
-  </div>
+</body>
+</html>
+
 </body>
 </html>

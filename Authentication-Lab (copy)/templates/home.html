@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Great Job!, you've succesfully logged in :</h1>
+    <p>{{session['user']['email']}}</p>
+    <h1>Submit Your Quote</h1>
+    <form action="/home" method="post">
+    <label for="quote">Enter your quote:</label><br>
+    <input type="text" id="quote" name="quote" required><br><br>
+    <label> who said this qoute? </label>
+    <input type="text" id="said_by" name="said_by" required><br><br>
+     <input type="submit" value="Submit">
+    <a href="/signout"><button>signout</button></a>
+
+</body>
+</html>
