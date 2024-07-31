@@ -39,10 +39,12 @@ def login():
     if request.method == 'GET':
         return render_template("login.html")
     else:
+        print('hi')
         email = request.form['email']
         password = request.form['password']
         try:
-            session['user'] = auth.sign_in_with_email_and_password(email, password)
+            login_session['user'] = auth.sign_in_with_email_and_password(email, password)
+            print('it worked?')
             return redirect(url_for('home'))
         except:
             error = "Womp it failed. Try again"
